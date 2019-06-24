@@ -1,0 +1,14 @@
+node 'default' {
+class {'tomcat':}
+tomcat::install { '/opt/tomcat':
+  source_url => 'https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.x/bin/apache-tomcat-7.0.x.tar.gz',
+  # source_url => 'http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.42/src/apache-tomcat-8.5.42-src.tar.gz',
+}
+tomcat::instance { 'default':
+  catalina_home => '/opt/tomcat',
+}
+#tomcat::war { 'sample.war':
+#  catalina_base => '/opt/tomcat',
+#  war_source    => 'puppet:///modules/tomcat/sample.war',
+#}
+}
