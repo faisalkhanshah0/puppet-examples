@@ -6,4 +6,11 @@ tomcat::install { '/opt/tomcat':
 }
 tomcat::instance { 'default':
   catalina_home => '/opt/tomcat',
+  catalina_base => '/opt/tomcat',
 }
+tomcat::war { 'test.war':
+  catalina_base => '/opt/tomcat',
+  war_source => 'puppet:///modules/tomcat/test.war',
+#  war_source => '/etc/puppetlabs/code/environments/production/modules/tomcat/files/sample.war',
+}
+           
